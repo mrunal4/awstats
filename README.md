@@ -16,8 +16,18 @@ docker run -d --name awstats --hostname ServerName \
 
 In this command, you will also run your server into host port 8080.
 
+## Run with your own config
+
+```
+docker run -d --name awstats --hostname ServerName \
+  -v /mnt/log/access.log:/var/log/apache2/access.log \
+  -v /path/to/your.conf:/usr/lib/cgi-bin/awstats/awstats.linoxide.conf && \
+  -p 8080:80 ewant/awstats
+```
+
 ## Browse
 
 ```
 http://your-awstats-ip-addr:8080/cgi-bin/awstats/awstats.pl?config=linoxide
 ```
+
