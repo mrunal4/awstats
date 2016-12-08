@@ -1,0 +1,13 @@
+example:
+  image: ewant/awstats
+#  build: .
+  volumes:
+    - /var/log/mail.log:/var/log/mail.log
+    - ./awstats.linoxide.conf:/usr/lib/cgi-bin/awstats/awstats.linoxide.conf
+    - ./run.sh:/run.sh
+    - ./school.server.org.access.log.1:/root/school.server.org.access.log.1
+    - ./awstats.nroer.gov.in.conf:/usr/lib/cgi-bin/awstats/awstats.nroer.gov.in.conf
+#    - ./awstats/awstats.nroer.gov.in.conf:/usr/lib/cgi-bin/awstats/awstats.nroer.gov.in.conf
+#    - ./awstats:/etc/awstats
+  ports:
+    - 8080:80
