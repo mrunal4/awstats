@@ -1,4 +1,4 @@
-From peihsinsu/nodejs
+	From peihsinsu/nodejs
 
 RUN apt-get update -y && apt-get install apache2 cron -y && \
   cd / && \
@@ -13,11 +13,13 @@ RUN apt-get update -y && apt-get install apache2 cron -y && \
   a2enmod cgi && \
   mv cgi-bin awstats && \
   chown www-data:www-data -R awstats && \ 
-  mv awstats /usr/lib/cgi-bin && \
-  crontab /mycron
+  mv awstats /usr/lib/cgi-bin
 
 ADD ./awstats.linoxide.conf /usr/lib/cgi-bin/awstats/awstats.linoxide.conf
 ADD ./run.sh /
+ADD ./mycron /
+
+RUN crontab /mycron
 
 WORKDIR /
 

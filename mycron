@@ -24,5 +24,4 @@
 # m h  dom mon dow   command
 
 01 *  * * * /usr/lib/cgi-bin/awstats.pl -config=linoxide -update
-
-01 *  * * * /usr/lib/cgi-bin/awstats.pl -config=nroer -update
+01 *  * * * /usr/lib/cgi-bin/awstats.pl -config=example.com -update

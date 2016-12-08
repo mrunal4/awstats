@@ -1,13 +1,12 @@
 example:
-  image: ewant/awstats
+  image: mrunal/awstats:7.6
 #  build: .
   volumes:
+    - ./mycron:/mycron
     - /var/log/mail.log:/var/log/mail.log
     - ./awstats.linoxide.conf:/usr/lib/cgi-bin/awstats/awstats.linoxide.conf
+    - /logs/example.com/access.log:/root/example.com/access.log                       # Change dir name as domain name and access log name
+    - ./awstats.example.com.conf:/usr/lib/cgi-bin/awstats/awstats.example.com.conf    # Change file name as domain name in conf
     - ./run.sh:/run.sh
-    - ./school.server.org.access.log.1:/root/school.server.org.access.log.1
-    - ./awstats.nroer.gov.in.conf:/usr/lib/cgi-bin/awstats/awstats.nroer.gov.in.conf
-#    - ./awstats/awstats.nroer.gov.in.conf:/usr/lib/cgi-bin/awstats/awstats.nroer.gov.in.conf
-#    - ./awstats:/etc/awstats
   ports:
     - 8080:80
